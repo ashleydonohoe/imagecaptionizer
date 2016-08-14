@@ -52,18 +52,19 @@ class CreateImageViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func clearMeme(sender: AnyObject) {
-        if memeImageView.image != nil {
-            memeImageView.image = nil
-        }
-        
-        captionTextField.text = "Add Caption"
-        shareButton.enabled = false
+//        if memeImageView.image != nil {
+//            memeImageView.image = nil
+//        }
+//        
+//        captionTextField.text = "Add Caption"
+//        shareButton.enabled = false
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func shareCaptionedImage(sender: AnyObject) {
         let captionedImage = generateCaptionedImage()
         let controller = UIActivityViewController(activityItems: [captionedImage], applicationActivities: nil)
-        presentViewController(controller, animated: true) { 
+        self.presentViewController(controller, animated: true) {
             self.save()
             print("captioned image saved")
         }
