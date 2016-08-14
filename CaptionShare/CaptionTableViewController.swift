@@ -8,38 +8,40 @@
 
 import UIKit
 
-class CaptionTableViewController: UITableViewController {
+class CaptionTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet var imagesTable: UITableView!
     var captions: [CaptionedImage]!
-    @IBOutlet weak var captionImage: UIImageView!
-    @IBOutlet weak var captionText: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .Plain, target: self, action: #selector(newImage))
 
-
-        // Do any additional setup after loading the view.
+        getImages()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        getImages()
+        imagesTable.reloadData()
+    }
+    
+    func getImages() {
         let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         captions = applicationDelegate.captionedImages
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
     
     func newImage() {
         let controller = self.storyboard!.instantiateViewControllerWithIdentifier("CreateImage") as! CreateImageViewController
         self.presentViewController(controller, animated: true, completion: nil)
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.captions.count
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return captions.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let captionedImageToShow = self.captions[indexPath.row].captionedImage
         let captionToShow = self.captions[indexPath.row].text
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell
@@ -48,8 +50,10 @@ class CaptionTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        <#code#>
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
+        detailController.currentImage = captions[indexPath.row]
+        self.navigationController!.pushViewController(detailController, animated: true)
     }
 
 }

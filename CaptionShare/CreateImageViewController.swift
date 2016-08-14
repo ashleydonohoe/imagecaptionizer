@@ -10,7 +10,9 @@ import UIKit
 
 class CreateImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
+    @IBOutlet weak var navbar: UINavigationBar!
 
+    @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var memeImageView: UIImageView!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -64,10 +66,14 @@ class CreateImageViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func shareCaptionedImage(sender: AnyObject) {
         let captionedImage = generateCaptionedImage()
         let controller = UIActivityViewController(activityItems: [captionedImage], applicationActivities: nil)
-        self.presentViewController(controller, animated: true) {
-            self.save()
-            print("captioned image saved")
+        controller.completionWithItemsHandler = {
+            (activity, success, items, error) in
+            if success {
+                self.save()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
         }
+        presentViewController(controller, animated: true, completion: nil)
         
     }
     
@@ -85,7 +91,6 @@ class CreateImageViewController: UIViewController, UIImagePickerControllerDelega
     func save() {
         let captionedImage = generateCaptionedImage()
         let finalProduct = CaptionedImage(text: captionTextField.text!, image: memeImageView.image!, captionedImage: captionedImage)
-        print(finalProduct)
         
         (UIApplication.sharedApplication().delegate as! AppDelegate).captionedImages.append(finalProduct)
     }
@@ -93,8 +98,8 @@ class CreateImageViewController: UIViewController, UIImagePickerControllerDelega
     func generateCaptionedImage() -> UIImage {
         
         // Hide toolbar and navbar
-        self.navigationController?.navigationBarHidden = true
-        self.navigationController?.toolbarHidden = true
+        navbar.hidden = true
+        toolbar.hidden = true
         
         // Create image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -103,8 +108,8 @@ class CreateImageViewController: UIViewController, UIImagePickerControllerDelega
         UIGraphicsEndPDFContext()
         
         // Show toolbar and navbar again
-        self.navigationController?.navigationBarHidden = false
-        self.navigationController?.toolbarHidden = false
+        navbar.hidden = false
+        toolbar.hidden = false
         
         return captionedImage
     }

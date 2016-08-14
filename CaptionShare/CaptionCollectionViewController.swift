@@ -11,6 +11,7 @@ import UIKit
 class CaptionCollectionViewController: UICollectionViewController {
     
     var captions: [CaptionedImage]!
+    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +22,16 @@ class CaptionCollectionViewController: UICollectionViewController {
         let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         captions = applicationDelegate.captionedImages
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewWillAppear(animated: Bool) {
+        <#code#>
     }
+
+    func getImages() {
+        let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        captions = applicationDelegate.captionedImages
+    }
+    
     
     func newImage() {
         let controller = self.storyboard!.instantiateViewControllerWithIdentifier("CreateImage") as! CreateImageViewController
