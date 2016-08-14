@@ -8,12 +8,14 @@
 
 import UIKit
 
-class CaptionCollectionViewController: UIViewController {
+class CaptionCollectionViewController: UICollectionViewController {
     
     var captions: [CaptionedImage]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .Plain, target: self, action: #selector(newImage))
 
         // Do any additional setup after loading the view.
         let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
@@ -25,6 +27,10 @@ class CaptionCollectionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func newImage() {
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("CreateImage") as! CreateImageViewController
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
