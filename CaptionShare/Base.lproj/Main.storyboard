@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="VpF-f4-ZJv">
+            <objects>
+                <tabBarController id="gFZ-h6-5UV" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="V4Z-Kn-lBW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lMF-W4-rZi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1083" y="169"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CaptionShare" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +31,84 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="bAo-dA-b2e">
+                                <rect key="frame" x="0.0" y="562" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="IWT-hn-VsK">
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="chooseFromCamera:" destination="BYZ-38-t0r" id="Xwl-pQ-CEE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="1SR-Jz-jMV"/>
+                                    <barButtonItem title="Album" id="any-bi-x4G">
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="chooseFromAlbum:" destination="BYZ-38-t0r" id="Ww1-Ca-OpS"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="08p-v3-e1Q">
+                                <rect key="frame" x="0.0" y="59" width="600" height="503"/>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="5rp-YV-sEq">
+                                <rect key="frame" x="0.0" y="15" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="CaptionShare" id="c0e-j9-1lA">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="aYi-Bj-W2y">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="shareCaptionedImage:" destination="BYZ-38-t0r" id="AV2-m8-eSY"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="zAU-Ku-gWA">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="clearMeme:" destination="BYZ-38-t0r" id="2ma-Eb-KVK"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add Caption" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="v69-uf-ILj">
+                                <rect key="frame" x="20" y="393" width="560" height="68"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="0.56000000000000005" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="GiW-RM-N9G"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="v69-uf-ILj" firstAttribute="centerX" secondItem="bAo-dA-b2e" secondAttribute="centerX" id="7cz-Ev-OqW"/>
+                            <constraint firstItem="v69-uf-ILj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="KlO-Hh-2Zk"/>
+                            <constraint firstItem="5rp-YV-sEq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="SrK-H5-tlQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5rp-YV-sEq" secondAttribute="trailing" constant="-20" id="Z2m-vL-1g7"/>
+                            <constraint firstAttribute="bottom" secondItem="v69-uf-ILj" secondAttribute="bottom" constant="139" id="ZeD-mN-Nlh"/>
+                            <constraint firstItem="08p-v3-e1Q" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="59" id="dO7-cp-8A1"/>
+                            <constraint firstItem="5rp-YV-sEq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="15" id="hMV-MD-jge"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="bAo-dA-b2e" secondAttribute="bottom" constant="-6" id="icI-4r-7Ku"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bAo-dA-b2e" secondAttribute="trailing" constant="-20" id="irZ-sQ-QHU"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="08p-v3-e1Q" secondAttribute="bottom" constant="38" id="nVP-ay-jWb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="08p-v3-e1Q" secondAttribute="trailing" constant="-20" id="qY6-je-wUJ"/>
+                            <constraint firstItem="08p-v3-e1Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="qqV-yk-7A3"/>
+                            <constraint firstItem="bAo-dA-b2e" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="wKD-v3-Hn0"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraButton" destination="IWT-hn-VsK" id="g3l-jC-IsS"/>
+                        <outlet property="captionTextField" destination="v69-uf-ILj" id="9Tp-P5-usJ"/>
+                        <outlet property="memeImageView" destination="08p-v3-e1Q" id="8Xe-Ar-ClQ"/>
+                        <outlet property="shareButton" destination="aYi-Bj-W2y" id="G23-Bd-ITi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="305" y="429"/>
         </scene>
     </scenes>
 </document>

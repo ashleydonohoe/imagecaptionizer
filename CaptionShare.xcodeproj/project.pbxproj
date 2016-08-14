@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E03937191D5D871B000030E2 /* CaptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03937181D5D871B000030E2 /* CaptionModel.swift */; };
 		E0722EED1D5C2B0F0016DDBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0722EEC1D5C2B0F0016DDBD /* AppDelegate.swift */; };
 		E0722EEF1D5C2B0F0016DDBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0722EEE1D5C2B0F0016DDBD /* ViewController.swift */; };
 		E0722EF21D5C2B0F0016DDBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0722EF01D5C2B0F0016DDBD /* Main.storyboard */; };
 		E0722EF41D5C2B0F0016DDBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0722EF31D5C2B0F0016DDBD /* Assets.xcassets */; };
 		E0722EF71D5C2B0F0016DDBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0722EF51D5C2B0F0016DDBD /* LaunchScreen.storyboard */; };
+		E0D8E3D31D60F82000DE3321 /* CaptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D8E3D21D60F82000DE3321 /* CaptionTableViewController.swift */; };
+		E0D8E3D51D60F83400DE3321 /* CaptionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D8E3D41D60F83400DE3321 /* CaptionCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E03937181D5D871B000030E2 /* CaptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionModel.swift; sourceTree = "<group>"; };
 		E0722EE91D5C2B0F0016DDBD /* CaptionShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaptionShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0722EEC1D5C2B0F0016DDBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0722EEE1D5C2B0F0016DDBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,8 @@
 		E0722EF31D5C2B0F0016DDBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0722EF61D5C2B0F0016DDBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0722EF81D5C2B0F0016DDBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0D8E3D21D60F82000DE3321 /* CaptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionTableViewController.swift; sourceTree = "<group>"; };
+		E0D8E3D41D60F83400DE3321 /* CaptionCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,9 @@
 				E0722EF31D5C2B0F0016DDBD /* Assets.xcassets */,
 				E0722EF51D5C2B0F0016DDBD /* LaunchScreen.storyboard */,
 				E0722EF81D5C2B0F0016DDBD /* Info.plist */,
+				E03937181D5D871B000030E2 /* CaptionModel.swift */,
+				E0D8E3D21D60F82000DE3321 /* CaptionTableViewController.swift */,
+				E0D8E3D41D60F83400DE3321 /* CaptionCollectionViewController.swift */,
 			);
 			path = CaptionShare;
 			sourceTree = "<group>";
@@ -135,8 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0D8E3D31D60F82000DE3321 /* CaptionTableViewController.swift in Sources */,
+				E03937191D5D871B000030E2 /* CaptionModel.swift in Sources */,
 				E0722EEF1D5C2B0F0016DDBD /* ViewController.swift in Sources */,
 				E0722EED1D5C2B0F0016DDBD /* AppDelegate.swift in Sources */,
+				E0D8E3D51D60F83400DE3321 /* CaptionCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +298,7 @@
 				E0722EFD1D5C2B0F0016DDBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

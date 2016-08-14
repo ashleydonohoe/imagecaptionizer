@@ -1,5 +1,5 @@
 //
-//  CaptionedImage.swift
+//  CaptionModel.swift
 //  CaptionShare
 //
 //  Created by Gabriele on 8/12/16.
@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 
-struct Caption {
+struct CaptionedImage {
     let text: String
     let image: UIImage
     let captionedImage: UIImage
