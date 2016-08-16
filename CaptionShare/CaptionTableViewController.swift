@@ -19,6 +19,7 @@ class CaptionTableViewController: UIViewController, UITableViewDataSource, UITab
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .Plain, target: self, action: #selector(newImage))
 
         getImages()
+        imagesTable.reloadData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -54,6 +55,19 @@ class CaptionTableViewController: UIViewController, UITableViewDataSource, UITab
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
         detailController.currentImage = captions[indexPath.row]
         self.navigationController!.pushViewController(detailController, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            captions.removeAtIndex(indexPath.row)
+            (UIApplication.sharedApplication().delegate as! AppDelegate).captionedImages.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            imagesTable.reloadData()
+        }
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
     }
 
 }

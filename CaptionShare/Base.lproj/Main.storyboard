@@ -256,6 +256,7 @@
                     <navigationItem key="navigationItem" id="GGk-m5-ecE"/>
                     <connections>
                         <outlet property="captionCollectionView" destination="sxQ-q3-QgA" id="l7Z-Mj-1zQ"/>
+                        <outlet property="flowLayout" destination="FGb-u4-OWT" id="udj-VI-tul"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EgU-L7-xKq" userLabel="First Responder" sceneMemberID="firstResponder"/>
