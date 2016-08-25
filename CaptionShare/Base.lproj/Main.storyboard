@@ -155,7 +155,7 @@
                                     <constraint firstAttribute="height" constant="68" id="GiW-RM-N9G"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="bAo-dA-b2e">
                                 <rect key="frame" x="0.0" y="562" width="600" height="44"/>
